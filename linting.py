@@ -2,7 +2,6 @@ import argparse
 import logging
 from pylint.lint import Run
 
-
 logging.getLogger().setLevel(logging.INFO)
 
 parser = argparse.ArgumentParser(prog="LINT")
@@ -10,16 +9,16 @@ parser = argparse.ArgumentParser(prog="LINT")
 parser.add_argument('-p',
                     '--path',
                     help='path to directory you want to run pylint | '
-                         'Default: %(default)s | '
-                         'Type: %(type)s ',
+                    'Default: %(default)s | '
+                    'Type: %(type)s ',
                     default='./src',
                     type=str)
 
 parser.add_argument('-t',
                     '--threshold',
                     help='score threshold to fail pylint runner | '
-                         'Default: %(default)s | '
-                         'Type: %(type)s ',
+                    'Default: %(default)s | '
+                    'Type: %(type)s ',
                     default=6.5,
                     type=float)
 
