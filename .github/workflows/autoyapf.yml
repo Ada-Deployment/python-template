@@ -1,4 +1,4 @@
-name: Formatting python code
+name: Python Formatting
 
 on: [push]
   paths:
