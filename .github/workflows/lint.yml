@@ -19,4 +19,4 @@ jobs:
         pip install pylint
     - name: Run Pylint
       run: |
-        python linting.py --path application.py --threshold 2
+        python linting.py --path ./src --threshold 4
