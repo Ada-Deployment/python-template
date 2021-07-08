@@ -1,3 +1,6 @@
+"""
+Creates a template for all flask apps 
+"""
 from flask import Flask, app, jsonify
 
 application = app = Flask(__name__)
@@ -6,6 +9,9 @@ application = app = Flask(__name__)
 @app.route('/', methods=['GET',
                          'POST'])  #landing page redirects to the sign in page
 def index():
+    """
+    landing page
+    """
     return jsonify("  Testing    new     blue/green deployment")
 
 
