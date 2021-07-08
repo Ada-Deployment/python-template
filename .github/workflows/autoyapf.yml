@@ -1,15 +1,12 @@
 name: Python Formatting
 
-on: [push]
-paths:
-    - '**.py'
+on: push
+
 jobs:
   autoyapf:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-        with:
-          ref: ${{ github.head_ref }}
       - name: autoyapf
         id: autoyapf
         uses: mritunjaysharma394/autoyapf@v2
@@ -26,3 +23,5 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git commit -am "Automated autoyapf fixes"
           git push
+
+
