@@ -32,7 +32,7 @@ logging.info('PyLint Starting | '
              'Threshold: {} '.format(path, threshold))
 
 results = Run([path], do_exit=False)
-print(results.linter)
+#print(results.linter)
 final_score = results.linter.stats['global_note']
 
 if final_score < threshold:
