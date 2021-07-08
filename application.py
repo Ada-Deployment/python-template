@@ -6,7 +6,7 @@ application = app = Flask(__name__)
 @app.route('/', methods=['GET',
                          'POST'])  #landing page redirects to the sign in page
 def index():
-    return jsonify("Testing new blue/green deployment")
+    return jsonify("  Testing    new     blue/green deployment")
 
 
 if __name__ == '__main__':
