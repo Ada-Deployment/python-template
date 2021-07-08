@@ -16,8 +16,8 @@ jobs:
     - name: Install Requirements
       run: |
         python -m pip install --upgrade pip
-        pip install pylint
-	pip install flask
+        pip install -r requirements.txt 
+        
     - name: Run Pylint
       run: |
         python linting.py --path application.py --threshold 4
