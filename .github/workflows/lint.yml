@@ -34,8 +34,7 @@ jobs:
 
       - name: Unit testing
         id: test
-        run: echo "All tests passed"
-
+        run: pytest
       - name: Run Pylint
         id: lint
         run: |
