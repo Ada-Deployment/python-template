@@ -34,7 +34,8 @@ jobs:
 
       - name: Unit testing
         id: test
-        run: pytest
+        run: |
+          pytest
       - name: Run Pylint
         id: lint
         run: |
