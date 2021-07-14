@@ -43,11 +43,11 @@ jobs:
       run: |
         python linting.py --path application.py --threshold 6
     - name: Check status
-        if: ${{ failure() }} 
+        if: failure()
         run: |
           git reset HEAD^ --hard
           git push origin -f
     - name: Check status
-        if: ${{ success() }} 
+        if: success()
         run: |
           git push
