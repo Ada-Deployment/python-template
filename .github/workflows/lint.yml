@@ -46,11 +46,11 @@ jobs:
       run: |
         python linting.py --path application.py --threshold 6
     - name: Create artifact of test coverage
-      if: success() || failure()
+      if: failure()
       run: |
           git reset HEAD^ --hard
           git push origin -f
     - name: Create artifact of test coverage
-      if: success() || failure()
+      if: success() 
       run: |
           git push
