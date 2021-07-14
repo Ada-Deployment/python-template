@@ -30,7 +30,7 @@ jobs:
           git config --global user.name 'samaravazquezperez'
           git config --global user.email 'samaravazquezperez@ada-mode.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git commit --allow-empty -am "Automated autoyapf fixes"
+          git commit --allow-empty -am "${{ github.event.commits[0].message }}"
 
       - name: Unit testing
         id: test
