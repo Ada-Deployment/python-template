@@ -51,6 +51,6 @@ jobs:
           git reset HEAD^ --hard
           git push origin -f
     - name: Check status
-        if: success()
+        if:  steps.lint.outcome == 'success' || steps.test.outcome == 'success'
         run: |
           git push
