@@ -5,6 +5,16 @@ jobs:
   autoyapf:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Install Requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt 
       - uses: actions/checkout@master
       - name: autoyapf
         id: autoyapf
@@ -21,36 +31,21 @@ jobs:
           git config --global user.email 'samaravazquezperez@ada-mode.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git commit --allow-empty -am "Automated autoyapf fixes"
-  
-  build:
-    needs: autoyapf
-    runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v1
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.8
-    - name: Install Requirements
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt 
-    - name: Unit testing
-      id: test
-      run: echo "All tests passed"
+      - name: Unit testing
+        id: test
+        run: echo "All tests passed"
 
-    - name: Run Pylint
-      id: lint
-      run: |
-        python linting.py --path application.py --threshold 6
-    - name: Create artifact of test coverage
-      if: failure()
-      run: |
-          git reset HEAD^ --hard
-          git push origin -f
-    - name: Create artifact of test coverage
-      if: success() 
-      run: |
-          git push
+      - name: Run Pylint
+        id: lint
+        run: |
+          python linting.py --path application.py --threshold 6
+      - name: Create artifact of test coverage
+        if: failure()
+        run: |
+            git reset HEAD^ --hard
+            git push origin -f
+      - name: Create artifact of test coverage
+        if: success() 
+        run: |
+            git push
