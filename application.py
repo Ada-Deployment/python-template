@@ -6,8 +6,7 @@ from flask import Flask, app, jsonify
 application = app = Flask(__name__)
 
 
-@app.route('/', methods=['GET',
-                         'POST'])  #landing page redirects to the sign in page
+@app.route('/', methods=['GET','POST'])  #landing page redirects to the sign in page
 def index():
     """
     landing page
