@@ -45,12 +45,12 @@ jobs:
       id: lint
       run: |
         python linting.py --path application.py --threshold 6
-    - name: Check status
-        if: steps.lint.outcome != 'success' || steps.test.outcome != 'success'
-        run: |
+    - name: Create artifact of test coverage
+      if: success() || failure()
+      run: |
           git reset HEAD^ --hard
           git push origin -f
-    - name: Check status
-        if:  steps.lint.outcome == 'success' || steps.test.outcome == 'success'
-        run: |
+    - name: Create artifact of test coverage
+      if: success() || failure()
+      run: |
           git push
